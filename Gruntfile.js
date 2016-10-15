@@ -426,6 +426,21 @@ module.exports = function (grunt) {
       ]
     },
 
+    requirejs: {
+      compile: {
+        options: {
+          baseUrl: ".",
+          mainConfigFile: "app/scripts/config.js",
+          name: "app/scripts/config.js",
+         /* name: "path/to/almond",  assumes a production build using almond, if you don't use almond, you
+                                    need to set the "includes" or "modules" option instead of name */
+          //include: [ "scripts/controllers/about.js" ],
+          optimize: 'none',
+          out: "script/to/optimized.js"
+        }
+      }
+    },
+
     // Test settings
     karma: {
       unit: {
@@ -451,7 +466,6 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.loadNpmTasks('grunt-bower-requirejs');
 
   grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
