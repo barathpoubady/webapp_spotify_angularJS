@@ -13,7 +13,7 @@ describe('Controller: MainCtrl', function () {
     scope = $rootScope.$new();
     MainCtrl = $controller('MainCtrl', {
       $scope: scope
-      // place here mocked dependencies
+      // place here mocked dependencies 
     });
   }));
 

@@ -17,8 +17,14 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'spotify'
   ])
+  .config(function (SpotifyProvider) {
+    SpotifyProvider.setClientId('bbf019ba26124700ab7ef6ba56587678');
+    SpotifyProvider.setRedirectUri('http://example.com/callback.html');
+    SpotifyProvider.setScope('playlist-read-private');
+  })
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
