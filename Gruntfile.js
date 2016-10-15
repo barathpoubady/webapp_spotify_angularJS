@@ -35,7 +35,10 @@ module.exports = function (grunt) {
     watch: {
       bower: {
         files: ['bower.json'],
-        tasks: ['wiredep']
+        tasks: ['wiredep'],
+        target: {
+          rjsConfig: 'app/config.js'
+        }
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
@@ -292,9 +295,15 @@ module.exports = function (grunt) {
     //     }
     //   }
     // },
-    // concat: {
-    //   dist: {}
-    // },
+    /* concat: {
+      options: {
+        separator: ';',
+      },
+      dist: {*/
+    ////    src: ['script/**/*.js', 'src/project.js', 'src/outro.js'],
+   //     dest: 'dist/js/built.js',
+  //    },
+  //  },
 
     imagemin: {
       dist: {

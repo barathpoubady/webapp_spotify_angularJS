@@ -25,7 +25,7 @@ angular
     SpotifyProvider.setRedirectUri('http://example.com/callback.html');
     SpotifyProvider.setScope('playlist-read-private');
   })
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider) {  
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',

@@ -12,6 +12,6 @@ angular.module('webappSpotifyAngularJsApp')
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
-      'Karma'
+      'Karma' 
     ];
   });
