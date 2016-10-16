@@ -7,11 +7,11 @@
  * # MainCtrl
  * Controller of the webappSpotifyAngularJsApp
  */
-angular.module('webappSpotifyAngularJsApp')
+angular.module('webappSpotifyAngularJsApp') 
   .controller('MainCtrl', function ($scope, Spotify) {
     this.awesomeThings = [
       'HTML5 Boilerplate', 
-      'AngularJS', 
+      'AngularJS',  
       'Karma'
     ];
     
@@ -56,7 +56,7 @@ angular.module('webappSpotifyAngularJsApp')
     
      var artistAlbums = [{name:'test'}];
 
-    $scope.getSubCategories = function(artistUri){
+    $scope.getSubCategories = function(){ //artistUri
 
          //Spotify.getArtistAlbums(artistUri, 1).then(function (data) {
 

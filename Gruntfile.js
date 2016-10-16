@@ -21,7 +21,7 @@ module.exports = function (grunt) {
 
   // Configurable paths for the application
   var appConfig = {
-    app: require('./bower.json').appPath || 'app',
+    app: require('./bower.json').appPath || 'app', 
     dist: 'dist'
   };
 
@@ -35,14 +35,11 @@ module.exports = function (grunt) {
     watch: {
       bower: {
         files: ['bower.json'],
-        tasks: ['wiredep'],
-        target: {
-          rjsConfig: 'app/config.js'
-        }
+        tasks: ['wiredep']
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all', 'newer:jscs:all'],
+        tasks: [ 'requirejs', 'newer:jshint:all', 'newer:jscs:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -305,6 +302,21 @@ module.exports = function (grunt) {
   //    },
   //  },
 
+  requirejs: {
+        compile: {
+          options: {
+            baseUrl: '.',
+            mainConfigFile: 'app/scripts/config.js',
+            name: 'config',
+          /* name: "path/to/almond",  assumes a production build using almond, if you don't use almond, you
+                                      need to set the "includes" or "modules" option instead of name */
+            //include: [ "scripts/controllers/about.js" ],
+            optimize: 'none',
+            out: 'app/scripts/to/optimized.js'
+          }
+        }
+      },
+
     imagemin: {
       dist: {
         files: [{
@@ -426,20 +438,7 @@ module.exports = function (grunt) {
       ]
     },
 
-    requirejs: {
-      compile: {
-        options: {
-          baseUrl: ".",
-          mainConfigFile: "app/scripts/config.js",
-          name: "app/scripts/config.js",
-         /* name: "path/to/almond",  assumes a production build using almond, if you don't use almond, you
-                                    need to set the "includes" or "modules" option instead of name */
-          //include: [ "scripts/controllers/about.js" ],
-          optimize: 'none',
-          out: "script/to/optimized.js"
-        }
-      }
-    },
+    
 
     // Test settings
     karma: {
